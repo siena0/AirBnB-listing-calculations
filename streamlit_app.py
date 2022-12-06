@@ -29,7 +29,7 @@ dataframe["Airbnb Listing ID"] = dataframe["Airbnb Listing ID"].astype(int)
 dataframe["Price"] = "€ " + dataframe["Price"].round(2).astype(str) # <--- CHANGE THIS POUND SYMBOL IF YOU CHOSE CURRENCY OTHER THAN POUND
 # Rename the number to a string
 dataframe["Location"] = dataframe["Location"].replace(
-    {1.0: "To visit", 0.0: "Airbnb listing"}
+    {1.0: "Van Gogh Museum", 0.0: "Airbnb listing"}
 )
 
 # Display dataframe and text
@@ -41,10 +41,11 @@ fig = px.scatter_mapbox(
     dataframe,
     lat="Latitude",
     lon="Longitude",
-    color="Location",
+    color="Meters from chosen location",
     zoom=11,
     height=500,
     width=800,
+    color_continuous_scale=px.colors.cyclical.IceFire,
     hover_name="Price",
     hover_data=["Meters from chosen location", "Location"],
     labels={"color": "Locations"},
