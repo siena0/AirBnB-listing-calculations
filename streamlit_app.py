@@ -45,7 +45,6 @@ fig = px.scatter_mapbox(
     zoom=11,
     height=500,
     size = "Price",
-    size_max=100,
     width=800,
     color_continuous_scale=px.colors.cyclical.IceFire,
     hover_name="Price",
